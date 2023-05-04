@@ -12,8 +12,8 @@ const MyButton = ({title}: {title: string}) => {
       }}>
       <Text
         style={{
-          color: '#000',
-          fontSize: 14,
+          color: '#191825',
+          fontSize: 16,
           textAlign: 'center',
           fontWeight: 'bold',
         }}>

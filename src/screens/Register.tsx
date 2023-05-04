@@ -1,9 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/react-in-jsx-scope */
-import {View, Text, TextInput} from 'react-native';
-import MyButton from '../components/MyButton';
+import React from 'react';
+import {View, Text} from 'react-native';
 
-const Register = () => {
+import MyButton from '../components/MyButton';
+import FormInput from '../components/FormInput';
+import Action from '../components/Action';
+
+const Register = ({setMode}: any) => {
   return (
     <View
       style={{
@@ -26,93 +29,24 @@ const Register = () => {
       </Text>
       <View
         style={{
-          marginTop: 50,
+          marginTop: 30,
           display: 'flex',
           flexDirection: 'column',
-          gap: 30,
+          gap: 20,
         }}>
         {/* input name */}
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 10,
-          }}>
-          <Text
-            style={{
-              color: '#fff',
-              fontSize: 14,
-              lineHeight: 16,
-              letterSpacing: 1.6,
-              textTransform: 'uppercase',
-            }}>
-            Your Name
-          </Text>
-          <TextInput
-            placeholder="Name"
-            placeholderTextColor="#fff"
-            style={{
-              backgroundColor: '#1A1E1E',
-              padding: 15,
-              color: '#fff',
-            }}
-          />
-        </View>
+        <FormInput label="Your Name" placeholder="Name" />
         {/* input email */}
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 10,
-          }}>
-          <Text
-            style={{
-              color: '#fff',
-              fontSize: 14,
-              lineHeight: 16,
-              letterSpacing: 1.6,
-              textTransform: 'uppercase',
-            }}>
-            Email{' '}
-          </Text>
-          <TextInput
-            placeholder="Email"
-            placeholderTextColor="#fff"
-            style={{
-              backgroundColor: '#1A1E1E',
-              padding: 15,
-              color: '#fff',
-            }}
-          />
-        </View>
+        <FormInput label="Email" placeholder="Email" />
         {/* input pw */}
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 10,
-          }}>
-          <Text
-            style={{
-              color: '#fff',
-              fontSize: 14,
-              lineHeight: 16,
-              letterSpacing: 1.6,
-              textTransform: 'uppercase',
-            }}>
-            Password
-          </Text>
-          <TextInput
-            placeholder="Password"
-            secureTextEntry={true}
-            placeholderTextColor="#fff"
-            style={{
-              backgroundColor: '#1A1E1E',
-              padding: 15,
-              color: '#fff',
-            }}
-          />
-        </View>
+        <FormInput label="Password" placeholder="Password" security={true} />
+        {/* Action Login */}
+        <Action
+          setMode={setMode}
+          valueSetMode="login"
+          title="Login"
+          ask="Have account?"
+        />
         {/* input confirm pw */}
         <MyButton title="Register" />
       </View>

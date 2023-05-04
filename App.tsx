@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react-native/no-inline-styles */
-
 import {
   ImageBackground,
   StatusBar,
@@ -8,6 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+
 import React, {useState} from 'react';
 import Login from './src/screens/Login';
 import Register from './src/screens/Register';
@@ -16,15 +16,13 @@ const App = () => {
   const [show, setShow] = useState(false);
   // mode login dan register
   const [mode, setMode] = useState('login');
-
   const handleMode = (mode: string) => {
     if (mode === 'login') {
       return <Login setMode={setMode} />;
     } else {
-      return <Register />;
+      return <Register setMode={setMode} />;
     }
   };
-
   return (
     <ImageBackground
       source={require('./src/assets/img/Background.png')}
@@ -75,7 +73,6 @@ const App = () => {
               }
         }>
         {show === true && handleMode(mode)}
-
         {/* tombol show */}
         {!show && (
           <TouchableOpacity
